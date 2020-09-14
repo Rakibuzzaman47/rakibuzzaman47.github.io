@@ -33,6 +33,7 @@ a:visited {
 
 a:hover {
     text-decoration: underline;
+    color: #999;
 }
 
 
@@ -119,6 +120,41 @@ header ul {
     padding: 0px;
 }
 
+
+/*
+    Certificate Section
+*/
+
+.certificate-showcase {
+    display: block;
+    columns: 12rem;
+    gap: 2rem;
+    max-width: 70%;
+    margin-left: 15%;
+}
+
+.certificate-showcase figure {
+    display: inline-block;
+    margin-bottom: 2rem;
+    break-inside: avoid;
+    width: 200% !important;
+    border: 7px solid #ccc;
+    border-top-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+.certificate-showcase figure img {
+    border-top-left-radius: 3%;
+    border-bottom-right-radius: 1%;
+}
+
+.certificate-showcase figcaption {
+    background: #ccc;
+    margin-top: -5px;
+    padding: 10px 7px;
+}
+
+
 /*
     Portfolio Section
 */
@@ -181,6 +217,220 @@ footer p {
     right: 50px;
     z-index: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    Responsive
+    On screens that are 600px or less*/
+    
+@media screen and (max-width: 600px) {
+
+    /*
+        Base Styling
+    */
+
+    body {
+        padding: 0px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    /*
+        Navigation
+    */
+
+    nav {
+        margin-bottom: 60px;
+        display: inline-block;
+    }
+
+    nav ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 5px 15px;
+        border: 1px solid #000;
+        margin-left: 0px;
+    }
+
+    nav ul li a {
+        text-transform: uppercase;
+        color: #000;
+        font-size: 12px;
+    }
+
+    /*
+        Sections
+    */
+
+    .section {
+        display: block;
+        width: 100%;
+    }
+
+    .inner-section {
+        margin-top: 50px;
+    }
+
+    .section-title {
+        text-transform: uppercase;
+        font-size: 30px;
+        border-bottom: 7px dotted #ccc;
+        padding-bottom: 10px;
+        width: 70%;
+        margin-left: 15%;
+        margin-bottom: 30px;
+    }
+
+    .inner-section ul {
+        text-align: left;
+        width: 90%;
+        margin-left: 0%;
+    }
+
+    .section ul li {
+        font-size: 14px;
+        margin-top: .5em;
+    }
+
+    .section ul li strong {
+        font-size: 16px;
+    }
+
+
+    /*
+        Header
+    */
+
+    #my-photo {
+        width: 200px;
+        border-radius: 50%;
+        border: 10px solid #ccc;
+    }
+
+    header ul {
+        padding: 0px;
+    }
+
+
+    /*
+        Certificate Section
+    */
+
+    .certificate-showcase {
+        display: block;
+        columns: 6rem;
+        gap: 1rem;
+        max-width: 80%;
+        margin-left: 0%;
+    }
+
+    .certificate-showcase figure {
+        display: inline-block;
+        margin-bottom: .5rem;
+        break-inside: avoid;
+        border: 3px solid #ccc;
+        border-top-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+    }
+
+    .certificate-showcase figure img {
+        border-top-left-radius: 3%;
+        border-bottom-right-radius: 1%;
+    }
+
+
+
+    /*
+        Portfolio Section
+    */
+
+    .portfolio-showcase {
+        display: block;
+        columns: 6rem;
+        gap: 2rem;
+        max-width: 75%;
+        margin-left: 0%;
+    }
+
+    .portfolio-showcase figure {
+        display: inline-block;
+        margin-bottom: .5rem;
+        break-inside: avoid;
+        border: 7px solid #ccc;
+        border-top-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+    }
+
+    .portfolio-showcase figure img {
+        border-top-left-radius: 3%;
+        border-bottom-right-radius: 1%;
+    }
+
+    /*
+        Experience Section
+    */
+
+    #experience ul {
+        width: 88%;
+        padding-left: 10%;
+    }
+
+    /*
+        Footer
+    */
+
+    footer,
+    #contact {
+        margin-top: 50px;
+    }
+
+    footer {
+        max-width: 80%;
+        margin-left: 10%;
+    }
+
+    footer p {
+        padding: 10px 5px;
+        margin: 10px;
+    }
+
+    /*
+        Responsive for Additional customization
+    */
+
+    #rocket-baby {
+        font-size: 30px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+/* END | On screens that are 600px or less */
+}
+
+
+
+
+
+
+
+
 
 @font-face {
     font-family: 'LucidaConsoleRegular';
