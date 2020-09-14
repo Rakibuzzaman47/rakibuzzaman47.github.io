@@ -120,6 +120,42 @@ header ul {
 }
 
 /*
+    Portfolio Section
+*/
+
+#portfolio {
+}
+
+.portfolio-showcase {
+    display: block;
+    columns: 12rem;
+    gap: 2rem;
+    max-width: 70%;
+    margin-left: 15%;
+}
+
+.portfolio-showcase figure {
+    display: inline-block;
+    margin-bottom: 2rem;
+    break-inside: avoid;
+    width: 200% !important;
+    border: 7px solid #ccc;
+    border-top-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+.portfolio-showcase figure img {
+    border-top-left-radius: 3%;
+    border-bottom-right-radius: 1%;
+}
+
+.portfolio-showcase figcaption {
+    background: #ccc;
+    margin-top: -5px;
+    padding: 10px 7px;
+}
+
+/*
     Footer
 */
 
