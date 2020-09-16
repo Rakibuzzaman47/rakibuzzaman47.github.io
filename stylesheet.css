@@ -218,6 +218,27 @@ footer p {
     z-index: 1;
 }
 
+.wanker {
+    /* Full-screen takeover… */
+    background: rgb(12,23,148);
+    background: linear-gradient(180deg, rgba(12,23,148,1) 0%, rgba(0,255,229,1) 73%, rgba(0,255,229,1) 100%, rgba(6,168,154,1) 100%); 
+    color: #FFF;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2014;
+  }
+  
+  .wanker-content {
+    /* Additional design… */
+    padding-top: 150px;
+    width: 50%;
+    margin-left: 25%;
+  }
+
 
 
 
