@@ -239,7 +239,15 @@ footer p {
     margin-left: 25%;
   }
 
-
+  #egggif {
+    position: fixed;
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+	top: 10%;
+	left: 25%;
+	display: none;
+}
 
 
 

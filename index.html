@@ -8,6 +8,9 @@
         <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     </head>
     <body id ="intro">
+
+        <img id="egggif" src="images/1kvc56.jpg" />
+
         <main>
             <header class="section">
                 <nav>
@@ -361,13 +364,20 @@
                 </div>
             </div>
 
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="assets/wanker/jquery.wanker.min.js"></script>
         <script src="assets/lazyload/lazyload.min.js"></script>
+        <script src="assets/egg/egg.js"></script>
+
         <script>
+
+            
             // jQuery mailto confirm
             !function(t){t.fn.confirmMailto=function(e){var n=t.extend({message:"Do you want to send an email to $to?",to:"href",callback:function(){},success:function(){},fail:function(){}},e),a=/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi,i=function(e){var i=n.message,c=n.to;if(c="href"==c?t(this).attr("href").match(a):"html"==c?t(this).html():c,i=i.replace("$to",c)==i?i+c:i.replace("$to",c),confirm(i)){n.success();var o=!0}else{e.preventDefault(),n.fail();var o=!1}return setTimeout(function(){n.callback(o)},1),o};return this.filter('[href^="mailto:"]').each(function(){t(this).bind("click",i)}),this}}(jQuery);
             
+            
+
             $(document).ready(function(){
                 // Add smooth scrolling to all links
                 $("a").on('click', function(event) {
@@ -405,6 +415,24 @@
                 // jQuery mailto
                 $('a').confirmMailto();
             });
+
+            var egg = new Egg();
+            egg
+            .addCode("up,up,down,down,left,right,left,right,b,a", function() {
+                jQuery('#egggif').fadeIn(500, function() {
+                window.setTimeout(function() { jQuery('#egggif').hide(); }, 5000);
+                });
+            })
+            .addHook(function(){
+                console.log("Hook called for: " + this.activeEgg.keys);
+                console.log(this.activeEgg.metadata);
+            }).listen();
+
+
+            console.log('%c 🤖 Hello Friend', 'font-weight: bold; font-size: 50px;color: #000; text-shadow: 1px 1px 0 #fff , 2px 2px 0 rgb(2,135,206) , 3px 3px 0 rgb(4,77,145) , 4px 4px 0 rgb(42,21,113)');
+            console.log('\n');
+            console.log("You're the one constant in a sea of variables.");
+            console.log("I believe in fate. There’s a reason we met. There’s something between us. I can see it.");
         </script>
 
     </body>
