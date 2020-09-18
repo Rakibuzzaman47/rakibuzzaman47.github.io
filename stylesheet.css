@@ -143,6 +143,13 @@ header ul {
     border-bottom-right-radius: 5%;
 }
 
+
+.certificate-showcase figure:hover {
+    border: 7px solid #000;
+    border-top-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+}
+
 .certificate-showcase figure img {
     border-top-left-radius: 3%;
     border-bottom-right-radius: 1%;
