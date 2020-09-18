@@ -161,6 +161,10 @@ header ul {
     padding: 10px 7px;
 }
 
+.certificate-showcase figcaption:hover {
+    color: #000;
+}
+
 
 /*
     Portfolio Section
@@ -184,6 +188,13 @@ header ul {
     border-bottom-right-radius: 5%;
 }
 
+
+.portfolio-showcase figure:hover {
+    border: 7px solid #000;
+    border-top-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+}
+
 .portfolio-showcase figure img {
     border-top-left-radius: 3%;
     border-bottom-right-radius: 1%;
@@ -193,6 +204,10 @@ header ul {
     background: #ccc;
     margin-top: -5px;
     padding: 10px 7px;
+}
+
+.portfolio-showcase figcaption:hover {
+    color: #000;
 }
 
 /*
