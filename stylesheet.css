@@ -2,488 +2,381 @@
     Author Name: Rakibuzzaman - rakibuzzaman47@gmail.com
 */
 
-
 /*
     Base Styling
 */
 
 * {
-    max-width: 100%;
+	max-width: 100%;
 }
-
 body {
-    text-align: center;
-    padding: 50px;
-    font-family: 'LucidaConsoleRegular', Fallback, sans-serif;
+	text-align: center;
+	padding: 50px;
+	font-family: 'LucidaConsoleRegular', Fallback, sans-serif;
 }
-
 h1 {
-    font-size: 40px;
+	font-size: 40px;
 }
-
 h2 {
-    font-size: 20px;
+	font-size: 20px;
 }
-
-a:link,
-a:visited {
-    color: #333;
-    text-decoration: none;
+a:link, a:visited {
+	color: #333;
+	text-decoration: none;
 }
-
 a:hover {
-    text-decoration: underline;
-    color: #999;
+	text-decoration: underline;
+	color: #999;
 }
-
-
 a:active {
-    text-decoration: none;  
+	text-decoration: none;
 }
-
-
-
 /*
     Navigation
 */
 
 nav {
-    margin-bottom: 100px;
+	margin-bottom: 100px;
 }
-
 nav ul li {
-    list-style: none;
-    display: inline-block;
-    padding: 5px 15px;
+	list-style: none;
+	display: inline-block;
+	padding: 5px 15px;
 }
-
 nav ul li a {
-    text-transform: uppercase;
-    color: #000;
-    font-size: 22px;
+	text-transform: uppercase;
+	color: #000;
+	font-size: 22px;
 }
-
 /*
     Sections
 */
 
 .section {
-    display: block;
-    width: 100%;
+	display: block;
+	width: 100%;
 }
-
 .inner-section {
-    margin-top: 150px;
+	margin-top: 150px;
 }
-
 .section-title {
-    text-transform: uppercase;
-    font-size: 50px;
-    border-bottom: 17px dotted #ccc;
-    padding-bottom: 10px;
-    width: 40%;
-    margin-left: 30%;
-    margin-bottom: 50px;
+	text-transform: uppercase;
+	font-size: 50px;
+	border-bottom: 17px dotted #ccc;
+	padding-bottom: 10px;
+	width: 40%;
+	margin-left: 30%;
+	margin-bottom: 50px;
 }
-
 .inner-section ul {
-    text-align: left;
-    width: 60%;
-    margin-left: 20%;
+	text-align: left;
+	width: 60%;
+	margin-left: 20%;
 }
-
 .section ul li {
-    font-size: 16px;
-    margin-top: .5em;
+	font-size: 16px;
+	margin-top: .5em;
 }
-
 .section ul li strong {
-    font-size: 20px;
+	font-size: 20px;
 }
-
-
 /*
     Header
 */
 
 header {
-    z-index: 999;
+	z-index: 999;
 }
-
 #my-photo {
-    width: 200px;
-    border-radius: 50%;
-    border: 10px solid #ccc;
+	width: 200px;
+	border-radius: 50%;
+	border: 10px solid #ccc;
 }
-
 header ul {
-    padding: 0px;
+	padding: 0px;
 }
-
-
 /*
     Certificate Section
 */
 
 .certificate-showcase {
-    display: block;
-    columns: 12rem;
-    gap: 2rem;
-    max-width: 70%;
-    margin-left: 15%;
+	display: block;
+	columns: 12rem;
+	gap: 2rem;
+	max-width: 70%;
+	margin-left: 15%;
 }
-
 .certificate-showcase figure {
-    display: inline-block;
-    margin-bottom: 2rem;
-    break-inside: avoid;
-    width: 200% !important;
-    border: 7px solid #ccc;
-    border-top-left-radius: 5%;
-    border-bottom-right-radius: 5%;
+	display: inline-block;
+	margin-bottom: 2rem;
+	break-inside: avoid;
+	width: 200% !important;
+	border: 7px solid #ccc;
+	border-top-left-radius: 5%;
+	border-bottom-right-radius: 5%;
 }
-
-
 .certificate-showcase figure:hover {
-    border: 7px solid #000;
-    border-top-right-radius: 5%;
-    border-bottom-left-radius: 5%;
+	border: 7px solid #000;
+	border-top-right-radius: 5%;
+	border-bottom-left-radius: 5%;
 }
-
 .certificate-showcase figure img {
-    border-top-left-radius: 3%;
-    border-bottom-right-radius: 1%;
+	border-top-left-radius: 3%;
+	border-bottom-right-radius: 1%;
 }
-
 .certificate-showcase figcaption {
-    background: #ccc;
-    margin-top: -5px;
-    padding: 10px 7px;
+	background: #ccc;
+	margin-top: -5px;
+	padding: 10px 7px;
 }
-
 .certificate-showcase figcaption:hover {
-    color: #000;
+	color: #000;
 }
-
-
 /*
     Portfolio Section
 */
 
 .portfolio-showcase {
-    display: block;
-    columns: 12rem;
-    gap: 2rem;
-    max-width: 70%;
-    margin-left: 15%;
+	display: block;
+	columns: 12rem;
+	gap: 2rem;
+	max-width: 70%;
+	margin-left: 15%;
 }
-
 .portfolio-showcase figure {
-    display: inline-block;
-    margin-bottom: 2rem;
-    break-inside: avoid;
-    width: 200% !important;
-    border: 7px solid #ccc;
-    border-top-left-radius: 5%;
-    border-bottom-right-radius: 5%;
+	display: inline-block;
+	margin-bottom: 2rem;
+	break-inside: avoid;
+	width: 200% !important;
+	border: 7px solid #ccc;
+	border-top-left-radius: 5%;
+	border-bottom-right-radius: 5%;
 }
-
-
 .portfolio-showcase figure:hover {
-    border: 7px solid #000;
-    border-top-right-radius: 5%;
-    border-bottom-left-radius: 5%;
+	border: 7px solid #000;
+	border-top-right-radius: 5%;
+	border-bottom-left-radius: 5%;
 }
-
 .portfolio-showcase figure img {
-    border-top-left-radius: 3%;
-    border-bottom-right-radius: 1%;
+	border-top-left-radius: 3%;
+	border-bottom-right-radius: 1%;
 }
-
 .portfolio-showcase figcaption {
-    background: #ccc;
-    margin-top: -5px;
-    padding: 10px 7px;
+	background: #ccc;
+	margin-top: -5px;
+	padding: 10px 7px;
 }
-
 .portfolio-showcase figcaption:hover {
-    color: #000;
+	color: #000;
 }
-
 /*
     Footer
 */
 
-footer,
-#contact {
-    margin-top: 100px;
+footer, #contact {
+	margin-top: 100px;
 }
-
 footer {
-    background: #000;
-    color: #fff;
+	background: #000;
+	color: #fff;
 }
-
 footer p {
-    padding: 30px 20px;
+	padding: 30px 20px;
 }
-
 /*
     Additional customization
 */
 
 #rocket-baby {
-    font-size: 50px;
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    z-index: 1;
+	font-size: 50px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	z-index: 1;
 }
-
 .wanker {
-    /* Full-screen takeover… */
-    background: rgb(12,23,148);
-    background: linear-gradient(180deg, rgba(12,23,148,1) 0%, rgba(0,255,229,1) 73%, rgba(0,255,229,1) 100%, rgba(6,168,154,1) 100%); 
-    color: #FFF;
-    display: none;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 2014;
-  }
-  
-  .wanker-content {
-    /* Additional design… */
-    padding-top: 150px;
-    width: 50%;
-    margin-left: 25%;
-  }
-
-  #egggif {
-    position: fixed;
-    width: 50%;
-    max-width: 500px;
-    height: auto;
+	/* Full-screen takeover… */
+	background: rgb(12, 23, 148);
+	background: linear-gradient(180deg, rgba(12, 23, 148, 1) 0%, rgba(0, 255, 229, 1) 73%, rgba(0, 255, 229, 1) 100%, rgba(6, 168, 154, 1) 100%);
+	color: #FFF;
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2014;
+}
+.wanker-content {
+	/* Additional design… */
+	padding-top: 150px;
+	width: 50%;
+	margin-left: 25%;
+}
+#egggif {
+	position: fixed;
+	width: 50%;
+	max-width: 500px;
+	height: auto;
 	top: 10%;
 	left: 25%;
 	display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
 /*
     Responsive
     On screens that are 600px or less*/
-    
-@media screen and (max-width: 600px) {
 
-    /*
+@media screen and (max-width: 600px) {
+	/*
         Base Styling
     */
-
-    body {
-        padding: 0px;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    h2 {
-        font-size: 15px;
-    }
-
-    /*
+	body {
+		padding: 0px;
+	}
+	h1 {
+		font-size: 30px;
+	}
+	h2 {
+		font-size: 15px;
+	}
+	/*
         Navigation
     */
-
-    nav {
-        margin-bottom: 60px;
-        display: inline-block;
-    }
-
-    nav ul li {
-        list-style: none;
-        display: inline-block;
-        padding: 5px 15px;
-        border: 1px solid #000;
-        margin-left: 0px;
-    }
-
-    nav ul li a {
-        text-transform: uppercase;
-        color: #000;
-        font-size: 12px;
-    }
-
-    /*
+	nav {
+		margin-bottom: 60px;
+		display: inline-block;
+	}
+	nav ul li {
+		list-style: none;
+		display: inline-block;
+		padding: 5px 15px;
+		border: 1px solid #000;
+		margin-left: 0px;
+	}
+	nav ul li a {
+		text-transform: uppercase;
+		color: #000;
+		font-size: 12px;
+	}
+	/*
         Sections
     */
-
-    .section {
-        display: block;
-        width: 100%;
-    }
-
-    .inner-section {
-        margin-top: 50px;
-    }
-
-    .section-title {
-        text-transform: uppercase;
-        font-size: 30px;
-        border-bottom: 7px dotted #ccc;
-        padding-bottom: 10px;
-        width: 70%;
-        margin-left: 15%;
-        margin-bottom: 30px;
-    }
-
-    .inner-section ul {
-        text-align: left;
-        width: 90%;
-        margin-left: 0%;
-    }
-
-    .section ul li {
-        font-size: 14px;
-        margin-top: .5em;
-    }
-
-    .section ul li strong {
-        font-size: 16px;
-    }
-
-
-    /*
+	.section {
+		display: block;
+		width: 100%;
+	}
+	.inner-section {
+		margin-top: 50px;
+	}
+	.section-title {
+		text-transform: uppercase;
+		font-size: 30px;
+		border-bottom: 7px dotted #ccc;
+		padding-bottom: 10px;
+		width: 70%;
+		margin-left: 15%;
+		margin-bottom: 30px;
+	}
+	.inner-section ul {
+		text-align: left;
+		width: 90%;
+		margin-left: 0%;
+	}
+	.section ul li {
+		font-size: 14px;
+		margin-top: .5em;
+	}
+	.section ul li strong {
+		font-size: 16px;
+	}
+	/*
         Header
     */
-
-    #my-photo {
-        width: 200px;
-        border-radius: 50%;
-        border: 10px solid #ccc;
-    }
-
-    header ul {
-        padding: 0px;
-    }
-
-
-    /*
+	#my-photo {
+		width: 200px;
+		border-radius: 50%;
+		border: 10px solid #ccc;
+	}
+	header ul {
+		padding: 0px;
+	}
+	/*
         Certificate Section
     */
-
-    .certificate-showcase {
-        display: block;
-        columns: 6rem;
-        gap: 1rem;
-        max-width: 80%;
-        margin-left: 0%;
-    }
-
-    .certificate-showcase figure {
-        display: inline-block;
-        margin-bottom: .5rem;
-        break-inside: avoid;
-        border: 3px solid #ccc;
-        border-top-left-radius: 5%;
-        border-bottom-right-radius: 5%;
-    }
-
-    .certificate-showcase figure img {
-        border-top-left-radius: 3%;
-        border-bottom-right-radius: 1%;
-    }
-
-
-
-    /*
+	.certificate-showcase {
+		display: block;
+		columns: 6rem;
+		gap: 1rem;
+		max-width: 80%;
+		margin-left: 0%;
+	}
+	.certificate-showcase figure {
+		display: inline-block;
+		margin-bottom: .5rem;
+		break-inside: avoid;
+		border: 3px solid #ccc;
+		border-top-left-radius: 5%;
+		border-bottom-right-radius: 5%;
+	}
+	.certificate-showcase figure img {
+		border-top-left-radius: 3%;
+		border-bottom-right-radius: 1%;
+	}
+	/*
         Portfolio Section
     */
-
-    .portfolio-showcase {
-        display: block;
-        columns: 6rem;
-        gap: 2rem;
-        max-width: 75%;
-        margin-left: 0%;
-    }
-
-    .portfolio-showcase figure {
-        display: inline-block;
-        margin-bottom: .5rem;
-        break-inside: avoid;
-        border: 7px solid #ccc;
-        border-top-left-radius: 5%;
-        border-bottom-right-radius: 5%;
-    }
-
-    .portfolio-showcase figure img {
-        border-top-left-radius: 3%;
-        border-bottom-right-radius: 1%;
-    }
-
-    /*
+	.portfolio-showcase {
+		display: block;
+		columns: 6rem;
+		gap: 2rem;
+		max-width: 75%;
+		margin-left: 0%;
+	}
+	.portfolio-showcase figure {
+		display: inline-block;
+		margin-bottom: .5rem;
+		break-inside: avoid;
+		border: 7px solid #ccc;
+		border-top-left-radius: 5%;
+		border-bottom-right-radius: 5%;
+	}
+	.portfolio-showcase figure img {
+		border-top-left-radius: 3%;
+		border-bottom-right-radius: 1%;
+	}
+	/*
         Experience Section
     */
-
-    #experience ul {
-        width: 88%;
-        padding-left: 10%;
-    }
-
-    /*
+	#experience ul {
+		width: 88%;
+		padding-left: 10%;
+	}
+	/*
         Footer
     */
-
-    footer,
-    #contact {
-        margin-top: 50px;
-    }
-
-    footer {
-        max-width: 80%;
-        margin-left: 10%;
-    }
-
-    footer p {
-        padding: 10px 5px;
-        margin: 10px;
-    }
-
-    /*
+	footer, #contact {
+		margin-top: 50px;
+	}
+	footer {
+		max-width: 80%;
+		margin-left: 10%;
+	}
+	footer p {
+		padding: 10px 5px;
+		margin: 10px;
+	}
+	/*
         Responsive for Additional customization
     */
-
-    #rocket-baby {
-        font-size: 30px;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
-/* END | On screens that are 600px or less */
+	#rocket-baby {
+		font-size: 30px;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+	}
+	/* END | On screens that are 600px or less */
 }
-
-
-
-
-
-
-
-
-
 @font-face {
-    font-family: 'LucidaConsoleRegular';
-    src: url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
-  }
+	font-family: 'LucidaConsoleRegular';
+	src: url('webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+}
