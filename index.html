@@ -18,6 +18,7 @@
         <meta property="og:description" content="Hi! 👋 I am Rakib 🤠. I spend my day learning & working with Web, Coding, Linux Servers, Basic Networking & Security." />
         <meta property="og:image" content="https://rakibuzzaman47.github.io/images/web-thumb.png" />
         <meta name=”robots” content=”index, follow”>
+        <link rel="stylesheet" type="text/css" href="assets/magnific-popup/magnific-popup.css" />
         <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 
         <!-- Google Tag Manager -->
@@ -510,12 +511,16 @@
                 </div>
             </div>
 
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="assets/wanker/jquery.wanker.min.js"></script>
         <script src="assets/lazyload/lazyload.min.js"></script>
         <script src="assets/egg/egg.js"></script>
+        <script src="assets/magnific-popup/magnific-popup.js"></script>
         <script>      
+
+
+            
+
             // jQuery mailto confirm
             !function(t){t.fn.confirmMailto=function(e){var n=t.extend({message:"Do you want to send an email to $to?",to:"href",callback:function(){},success:function(){},fail:function(){}},e),a=/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi,i=function(e){var i=n.message,c=n.to;if(c="href"==c?t(this).attr("href").match(a):"html"==c?t(this).html():c,i=i.replace("$to",c)==i?i+c:i.replace("$to",c),confirm(i)){n.success();var o=!0}else{e.preventDefault(),n.fail();var o=!1}return setTimeout(function(){n.callback(o)},1),o};return this.filter('[href^="mailto:"]').each(function(){t(this).bind("click",i)}),this}}(jQuery);
             
@@ -558,6 +563,8 @@
                 $('a').confirmMailto();
             });
 
+
+
             var egg = new Egg();
             egg
             .addCode("up,up,down,down,left,right,left,right,b,a", function() {
@@ -566,6 +573,29 @@
                 });
             }).listen();
 
+            $('.certificate-showcase').magnificPopup({
+                delegate: 'a', // child items selector, by clicking on it popup will open
+                type: 'image',
+                // other options
+                gallery:{
+                    enabled:true
+                },
+                zoom: { 
+                    enabled: true, // By default it's false, so don't forget to enable it
+
+                    duration: 300, // duration of the effect, in milliseconds
+                    easing: 'ease-in-out', // CSS transition easing function
+
+                    // The "opener" function should return the element from which popup will be zoomed in
+                    // and to which popup will be scaled down
+                    // By defailt it looks for an image tag:
+                    opener: function(openerElement) {
+                    // openerElement is the element on which popup was initialized, in this case its <a> tag
+                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                    }
+                }
+            });
 
             console.log('%c 🤖 Hello Friend', 'font-weight: bold; font-size: 50px;color: #000; text-shadow: 1px 1px 0 #fff , 2px 2px 0 rgb(2,135,206) , 3px 3px 0 rgb(4,77,145) , 4px 4px 0 rgb(42,21,113)');
             console.log('\n');
