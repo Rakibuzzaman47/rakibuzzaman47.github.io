@@ -88,9 +88,8 @@ header {
 	z-index: 999;
 }
 #my-photo {
-	width: 200px;
+	width: 350px;
 	border-radius: 50%;
-	border: 10px solid #ccc;
 }
 header ul {
 	padding: 0px;
