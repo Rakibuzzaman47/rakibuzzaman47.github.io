@@ -378,6 +378,7 @@ footer p {
 		position: fixed;
 		bottom: 20px;
 		right: 20px;
+		font-style: normal;
 	}
 	/* END | On screens that are 600px or less */
 }
