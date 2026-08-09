@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rakib Uzzaman — WordPress Reliability & Web Operations</title>
     
-    <!-- SEO & Metadata -->
     <meta name="description" content="I help small businesses keep their WordPress websites monitored, maintained, backed up and performing reliably — without needing an in-house technical team.">
     <meta name="author" content="Rakib Uzzaman">
     <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
     <link rel="canonical" href="https://rakibuzzaman47.github.io/">
 
     <!-- Open Graph / Facebook -->
@@ -21,7 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rakib Uzzaman — WordPress Reliability & Web Operations">
-    <meta name="twitter:description" content="Managed WordPress Care, security, performance optimization, and reliability for small businesses.">
+    <meta name="twitter:description" content="Managed WordPress Care for small businesses: website monitoring, maintenance, backups, security and performance support.">
 
     <!-- Inline SVG Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f172a'/><path d='M16 6L24 11V21L16 26L8 21V11L16 6Z' stroke='%2314b8a6' stroke-width='2' fill='none'/><circle cx='16' cy='16' r='3' fill='%2314b8a6'/></svg>">
@@ -59,7 +60,7 @@
             font-family: var(--font-sans);
             background-color: var(--bg-navy-900);
             color: var(--text-slate-200);
-            line-height: 1.5;
+            line-height: 1.55;
             overflow-x: hidden;
         }
 
@@ -82,7 +83,6 @@
             background: none;
         }
 
-        /* Focus rings for accessibility */
         a:focus-visible, button:focus-visible {
             outline: 2px solid var(--brand-400);
             outline-offset: 2px;
@@ -104,14 +104,127 @@
             .px-8 { padding-left: 2rem; padding-right: 2rem; }
         }
 
-        /* Visual Patterns & Cards */
+        /* Site Header & Navigation */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background-color: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 5rem;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-slate-300);
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; align-items: center; }
+            #mobile-menu-btn { display: none !important; }
+        }
+
+        .nav-links a {
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-400);
+        }
+
+        /* Hero Section Layout */
+        .hero-layout {
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-panel {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(6, 10, 18, 0.98));
+            border: 1px solid rgba(45, 212, 191, 0.22);
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        .hero-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        .health-row {
+            display: grid;
+            grid-template-columns: 2.25rem 1fr auto;
+            gap: 0.75rem;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(30, 41, 59, 0.75);
+        }
+
+        .health-row:last-child { border-bottom: 0; }
+
+        .health-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            display: grid;
+            place-items: center;
+            border-radius: 0.65rem;
+            background: rgba(20, 184, 166, 0.08);
+            color: var(--brand-400);
+            border: 1px solid rgba(20, 184, 166, 0.18);
+        }
+
+        .health-state {
+            color: var(--brand-400);
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .pulse-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background: var(--brand-400);
+            box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.35);
+            animation: soft-pulse 2.4s ease-out infinite;
+        }
+
+        @keyframes soft-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.35); }
+            70% { box-shadow: 0 0 0 8px rgba(45, 212, 191, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
+        }
+
+        /* Visual Patterns, Cards & Badges */
         .grid-pattern {
             background-image: radial-gradient(rgba(20, 184, 166, 0.08) 1px, transparent 1px);
             background-size: 24px 24px;
         }
 
         .border-glow {
-            box-shadow: 0 0 20px -3px rgba(20, 184, 166, 0.15);
+            box-shadow: 0 0 25px -3px rgba(20, 184, 166, 0.2);
         }
 
         .card {
@@ -119,14 +232,14 @@
             border: 1px solid var(--border-color);
             border-radius: 1rem;
             padding: 1.5rem;
-            transition: border-color 0.2s ease, transform 0.2s ease;
+            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
             border-color: rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
         }
 
-        /* Typography & Badges */
         .font-mono { font-family: var(--font-mono); }
         .text-brand-400 { color: var(--brand-400); }
         .text-white { color: var(--text-white); }
@@ -160,7 +273,7 @@
             display: inline-block;
         }
 
-        /* Buttons & CTAs */
+        /* Buttons & Interactive Elements */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -171,13 +284,15 @@
             font-weight: 600;
             color: #0f172a;
             background-color: var(--brand-400);
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 12px rgba(45, 212, 191, 0.15);
         }
 
         .btn-primary:hover {
             background-color: var(--brand-500);
             color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(20, 184, 166, 0.25);
         }
 
         .btn-secondary {
@@ -191,49 +306,132 @@
             color: var(--text-slate-200);
             background-color: var(--bg-navy-800);
             border: 1px solid var(--border-color);
-            transition: background-color 0.2s ease, border-color 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
         }
 
         .btn-secondary:hover {
             background-color: var(--bg-navy-700);
             border-color: var(--text-slate-400);
+            transform: translateY(-1px);
         }
 
-        /* Header Navigation */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background-color: rgba(11, 17, 32, 0.92);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-color);
+        /* High-Converting $49 Business Plan Highlighting */
+        .business-plan {
+            box-shadow: 0 0 0 2px var(--brand-500), 0 20px 60px rgba(20, 184, 166, 0.2);
+            transform: translateY(-4px);
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(11, 17, 32, 0.99));
         }
 
-        .nav-container {
-            display: flex;
+        .business-plan:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 0 0 2px var(--brand-400), 0 26px 75px rgba(20, 184, 166, 0.28);
+        }
+
+        .plan-recommended {
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            height: 5rem;
-        }
-
-        .nav-links {
-            display: none;
-            gap: 2rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-slate-300);
-        }
-
-        @media (min-width: 768px) {
-            .nav-links { display: flex; align-items: center; }
-            #mobile-menu-btn { display: none !important; }
-        }
-
-        .nav-links a:hover {
+            gap: 0.45rem;
+            margin-top: 0.5rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 9999px;
+            background: rgba(20, 184, 166, 0.12);
+            border: 1px solid rgba(20, 184, 166, 0.3);
             color: var(--brand-400);
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
         }
 
-        /* Grid Layouts */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .trust-item {
+            padding: 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.85rem;
+            background: rgba(15, 23, 42, 0.55);
+            transition: border-color 0.2s ease;
+        }
+
+        .trust-item:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+        }
+
+        .trust-item strong {
+            display: block;
+            color: #fff;
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .trust-item span {
+            color: var(--text-slate-400);
+            font-size: 0.8125rem;
+            line-height: 1.5;
+        }
+
+        .section-note {
+            max-width: 48rem;
+            margin: 0.75rem auto 0;
+            color: var(--text-slate-500);
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+
+        main { padding-top: 5rem; }
+        section[id] { scroll-margin-top: 6rem; }
+
+        .header-cta { display: none !important; }
+        @media (min-width: 900px) {
+            .header-cta { display: inline-flex !important; }
+        }
+
+        /* Floating Back To Top Button */
+        #back-to-top {
+            position: fixed;
+            right: 1.25rem;
+            bottom: max(1.25rem, env(safe-area-inset-bottom));
+            z-index: 60;
+            width: 2.75rem;
+            height: 2.75rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            background-color: var(--bg-navy-800);
+            border: 1px solid rgba(45, 212, 191, 0.45);
+            color: var(--brand-400);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        #back-to-top.visible { display: inline-flex; }
+
+        #back-to-top:hover {
+            background-color: var(--bg-navy-700);
+            transform: translateY(-2px);
+        }
+
+        /* Tech Stack Badges */
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 0.375rem;
+            background-color: var(--bg-navy-800);
+            border: 1px solid var(--border-color);
+            font-size: 0.8125rem;
+            color: var(--text-slate-200);
+            font-family: var(--font-mono);
+        }
+
+        /* Grid Utilities */
         .grid-1 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
         
         @media (min-width: 640px) {
@@ -249,7 +447,7 @@
             .grid-lg-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2.5rem; }
         }
 
-        /* Portfolio Tabs */
+        /* Portfolio Filter Tabs */
         .portfolio-tab {
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
@@ -275,9 +473,7 @@
             padding: 1rem;
         }
 
-        #mobile-menu.open {
-            display: block;
-        }
+        #mobile-menu.open { display: block; }
 
         #mobile-menu a {
             display: block;
@@ -292,7 +488,7 @@
             color: var(--brand-400);
         }
 
-        /* SVG Icons */
+        /* SVG Icon helper */
         .icon {
             width: 1.25rem;
             height: 1.25rem;
@@ -305,6 +501,7 @@
             vertical-align: middle;
         }
 
+        /* Spacing & Helper Classes */
         .hidden { display: none !important; }
         .text-center { text-align: center; }
         .text-left { text-align: left; }
@@ -325,11 +522,30 @@
         .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
         .border-b { border-bottom: 1px solid var(--border-color); }
         .border-t { border-top: 1px solid var(--border-color); }
-        .rounded-2xl { border-radius: 1rem; }
-        .rounded-3xl { border-radius: 1.5rem; }
+
+        @media (max-width: 1023px) {
+            .hero-layout { grid-template-columns: 1fr; }
+            .hero-panel { max-width: 42rem; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 639px) {
+            .hero-layout { gap: 2rem; }
+            .hero-panel { padding: 1.25rem; }
+            .trust-grid { grid-template-columns: 1fr; }
+            .business-plan { transform: none; }
+            .business-plan:hover { transform: translateY(-3px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            #back-to-top { transition: none; }
+            .pulse-dot { animation: none; }
+            .card, .business-plan, .btn-primary, .btn-secondary { transition: none; }
+        }
     </style>
 
-    <!-- JSON-LD Professional Service Schema (Accurate Solo Operator Scope) -->
+    <!-- JSON-LD Professional Service Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -360,13 +576,13 @@
     }
     </script>
 </head>
-<body>
+<body id="top">
 
     <header class="site-header" id="navbar">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="nav-container">
                 <!-- Brand Logo / Name -->
-                <a href="#" class="flex-align-center" style="display: flex; align-items: center; gap: 0.75rem;">
+                <a href="#top" class="flex-align-center" style="display: flex; align-items: center; gap: 0.75rem;">
                     <div style="width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background-color: var(--bg-navy-800); border: 1px solid rgba(20, 184, 166, 0.3); display: flex; align-items: center; justify-content: center; color: var(--brand-400);">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
@@ -389,10 +605,9 @@
 
                 <!-- Header CTA Button -->
                 <div style="display: flex; align-items: center; gap: 1rem;">
-                    <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: none;">
+                    <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary header-cta">
                         Free Health Check
                     </a>
-                    <style>@media(min-width:640px){ .btn-primary { display: inline-flex !important; } }</style>
 
                     <!-- Mobile Menu Toggle Button -->
                     <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" style="padding: 0.5rem; color: var(--text-slate-400);">
@@ -422,46 +637,102 @@
     <main style="flex-grow: 1;">
         <section class="grid-pattern border-b py-20" style="position: relative; overflow: hidden;">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl">
-                    <!-- Status Badge -->
-                    <div class="badge-pill mb-6">
-                        <span style="width: 0.5rem; height: 0.5rem; border-radius: 9999px; background-color: var(--brand-400);"></span>
-                        <span>Available for Managed WordPress Care</span>
-                    </div>
-
-                    <!-- Primary Headline (Exact Required Copy) -->
-                    <h1 style="font-size: 2.25rem; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 1.5rem; tracking-tight: -0.025em;">
-                        Keep Your WordPress Website <span style="color: var(--brand-400);">Secure, Fast & Online.</span>
-                    </h1>
-
-                    <!-- Supporting Message (Exact Required Copy) -->
-                    <p style="font-size: 1.125rem; color: var(--text-slate-300); line-height: 1.7; margin-bottom: 2rem;">
-                        I help small businesses keep their WordPress websites monitored, maintained, backed up and performing reliably — without needing an in-house technical team.
-                    </p>
-
-                    <!-- Hero CTAs -->
-                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
-                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                            Get a Free Website Health Check
-                            <svg class="icon" style="margin-left: 0.5rem;" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
-                        <a href="#pricing" class="btn-secondary">
-                            View Care Plans
-                        </a>
-                    </div>
-
-                    <!-- Target Market Chips -->
-                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
-                        <p style="font-size: 0.75rem; font-family: var(--font-mono); text-transform: uppercase; color: var(--text-slate-400); margin-bottom: 0.75rem;">Tailored for WordPress-driven B2B & Services:</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; color: var(--text-slate-300);">
-                            <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Consultants</span>
-                            <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Agencies</span>
-                            <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Clinics</span>
-                            <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Professional Services</span>
-                            <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Coaches</span>
-                            <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Small Businesses</span>
-                            <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Small eCommerce</span>
+                <div class="hero-layout">
+                    <div class="max-w-3xl">
+                        <!-- Status Badge -->
+                        <div class="badge-pill mb-6">
+                            <span style="width: 0.5rem; height: 0.5rem; border-radius: 9999px; background-color: var(--brand-400);"></span>
+                            <span>Available for Managed WordPress Care</span>
                         </div>
+
+                        <!-- Primary Headline -->
+                        <h1 style="font-size: 2.25rem; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 1.5rem; tracking-tight: -0.025em;">
+                            Keep Your WordPress Website <span style="color: var(--brand-400);">Secure, Fast & Online.</span>
+                        </h1>
+
+                        <!-- Supporting Message -->
+                        <p style="font-size: 1.125rem; color: var(--text-slate-300); line-height: 1.7; margin-bottom: 2rem;">
+                            I help small businesses keep their WordPress websites monitored, maintained, backed up and performing reliably — without needing an in-house technical team.
+                        </p>
+
+                        <!-- Hero CTAs -->
+                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+                            <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                                Get a Free Website Health Check
+                                <svg class="icon" style="margin-left: 0.5rem;" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                            <a href="#pricing" class="btn-secondary">
+                                View Care Plans
+                            </a>
+                        </div>
+
+                        <!-- Target Market Chips -->
+                        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                            <p style="font-size: 0.75rem; font-family: var(--font-mono); text-transform: uppercase; color: var(--text-slate-400); margin-bottom: 0.75rem;">Tailored for WordPress-driven B2B & Services:</p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; color: var(--text-slate-300);">
+                                <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Consultants</span>
+                                <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Agencies</span>
+                                <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Clinics</span>
+                                <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Professional Services</span>
+                                <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Coaches</span>
+                                <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Small Businesses</span>
+                                <span style="padding: 0.25rem 0.625rem; border-radius: 0.25rem; background-color: var(--bg-navy-800); border: 1px solid var(--border-color);">Small eCommerce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Panel -->
+                    <div class="hero-panel" aria-label="WordPress care model breakdown">
+                        <div class="hero-panel-header">
+                            <div>
+                                <div class="font-mono" style="font-size:0.68rem; color:var(--text-slate-500); text-transform:uppercase; letter-spacing:0.1em;">Reliability Stack</div>
+                                <div style="font-size:1rem; font-weight:700; color:#fff; margin-top:0.2rem;">What gets looked after</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.45rem;">
+                                <span class="pulse-dot" aria-hidden="true"></span>
+                                <span class="health-state">Care Model</span>
+                            </div>
+                        </div>
+
+                        <div class="health-row">
+                            <div class="health-icon" aria-hidden="true">✓</div>
+                            <div>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Uptime & SSL</strong>
+                                <span style="color:var(--text-slate-500); font-size:0.72rem;">Availability signals & certificate health</span>
+                            </div>
+                            <span class="health-state">Watch</span>
+                        </div>
+
+                        <div class="health-row">
+                            <div class="health-icon" aria-hidden="true">✓</div>
+                            <div>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Security</strong>
+                                <span style="color:var(--text-slate-500); font-size:0.72rem;">Hardening, scanning & maintenance risks</span>
+                            </div>
+                            <span class="health-state">Watch</span>
+                        </div>
+
+                        <div class="health-row">
+                            <div class="health-icon" aria-hidden="true">✓</div>
+                            <div>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Backups</strong>
+                                <span style="color:var(--text-slate-500); font-size:0.72rem;">Scheduled and pre-update safety checks</span>
+                            </div>
+                            <span class="health-state">Check</span>
+                        </div>
+
+                        <div class="health-row">
+                            <div class="health-icon" aria-hidden="true">✓</div>
+                            <div>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Performance</strong>
+                                <span style="color:var(--text-slate-500); font-size:0.72rem;">Speed signals, bottlenecks & practical tuning</span>
+                            </div>
+                            <span class="health-state">Improve</span>
+                        </div>
+
+                        <p style="font-size:0.68rem; color:var(--text-slate-500); line-height:1.5; margin-top:0.9rem;">
+                            Service overview model — not a live client monitoring dashboard.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -492,105 +763,102 @@
 
         <section id="services" class="py-20 border-b">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
-                <!-- Section Header -->
                 <div class="text-center max-w-3xl mb-16">
-                    <span class="badge-section">Primary Service</span>
+                    <span class="badge-section">What I Look After</span>
                     <h2 style="font-size: 2rem; font-weight: 700; color: #fff; margin-top: 1rem; margin-bottom: 1rem;">Managed WordPress Care</h2>
                     <p style="color: var(--text-slate-400); font-size: 1.125rem;">
-                        Proactive web operations designed to prevent downtime, help reduce common security and reliability risks, and identify performance bottlenecks.
+                        The goal is simple: keep your website available, maintained, protected, backed up, and working well — so you can focus on the business behind it.
                     </p>
                 </div>
 
-                <!-- 6 Core Service Pillars Grid -->
                 <div class="grid-1 grid-md-2 grid-lg-3">
-                    
-                    <!-- Reliability -->
+
                     <div class="card">
                         <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--brand-400); margin-bottom: 1.5rem;">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Reliability</h3>
-                        <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300);" class="space-y">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Stay Online</h3>
+                        <p style="font-size: 0.8125rem; color: var(--text-slate-400); margin-bottom: 1rem;">Know sooner when your website has a problem.</p>
+                        <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300);">
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Uptime monitoring</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Downtime alerts</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Response-time monitoring</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> SSL certificate monitoring</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Website health checks</li>
+                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Response-time checks</li>
+                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> SSL monitoring</li>
+                            <li><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Website health checks</li>
                         </ul>
                     </div>
 
-                    <!-- Security -->
                     <div class="card">
                         <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--brand-400); margin-bottom: 1.5rem;">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Security</h3>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Reduce Common Security Risks</h3>
+                        <p style="font-size: 0.8125rem; color: var(--text-slate-400); margin-bottom: 1rem;">Keep routine WordPress security issues from being ignored.</p>
                         <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300);">
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Security monitoring</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Vulnerability review</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Malware scanning</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Firewall configuration where supported</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Login & brute-force protection</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Basic security hardening</li>
+                            <li><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Basic hardening</li>
                         </ul>
                     </div>
 
-                    <!-- Backups -->
                     <div class="card">
                         <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--brand-400); margin-bottom: 1.5rem;">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Backups</h3>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Have a Recovery Point</h3>
+                        <p style="font-size: 0.8125rem; color: var(--text-slate-400); margin-bottom: 1rem;">Reduce the risk of losing work after updates or unexpected issues.</p>
                         <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300);">
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Scheduled backups</li>
+                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Scheduled backup checks</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Pre-update safety backups</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Backup verification</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Off-site backup configuration where supported</li>
+                            <li><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Off-site backup configuration where supported</li>
                         </ul>
                     </div>
 
-                    <!-- Performance -->
                     <div class="card">
                         <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--brand-400); margin-bottom: 1.5rem;">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Performance</h3>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Keep It Performing Well</h3>
+                        <p style="font-size: 0.8125rem; color: var(--text-slate-400); margin-bottom: 1rem;">Find and address common causes of slow WordPress sites.</p>
                         <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300);">
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Performance monitoring</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Core Web Vitals review</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Caching setup & tuning</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Image optimization</li>
+                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Caching and image optimization</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> CSS/JS optimization where appropriate</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Database cleanup & CDN setup where appropriate</li>
+                            <li><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Database cleanup & CDN setup where appropriate</li>
                         </ul>
                     </div>
 
-                    <!-- Maintenance -->
                     <div class="card">
                         <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--brand-400); margin-bottom: 1.5rem;">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Maintenance</h3>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Keep WordPress Maintained</h3>
+                        <p style="font-size: 0.8125rem; color: var(--text-slate-400); margin-bottom: 1rem;">Avoid neglected updates and catch compatibility problems earlier.</p>
                         <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300);">
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> WordPress core updates</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Plugin & theme updates</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Compatibility checks</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Basic functionality checks</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Broken-link checks</li>
+                            <li><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Broken-link checks</li>
                         </ul>
                     </div>
 
-                    <!-- Reporting -->
                     <div class="card">
                         <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--brand-400); margin-bottom: 1.5rem;">
                             <svg class="icon" viewBox="0 0 24 24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">Reporting</h3>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Know What Is Happening</h3>
+                        <p style="font-size: 0.8125rem; color: var(--text-slate-400); margin-bottom: 1rem;">Get a clear record instead of wondering what was changed or found.</p>
                         <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300);">
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Monthly Website Health Report</li>
+                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Monthly website health report</li>
                             <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Maintenance change log</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Summary of issues found</li>
-                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Actionable recommendations</li>
+                            <li style="margin-bottom: 0.5rem;"><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Issues found</li>
+                            <li><span style="color: var(--brand-400); margin-right: 0.5rem;">✓</span> Actionable recommendations</li>
                         </ul>
                     </div>
 
@@ -601,127 +869,146 @@
         <section id="pricing" class="py-20 border-b" style="background-color: var(--bg-navy-950);">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mb-16">
-                    <span class="badge-section">Transparent Pricing</span>
-                    <h2 style="font-size: 2rem; font-weight: 700; color: #fff; margin-top: 1rem; margin-bottom: 1rem;">Choose Your Care Plan</h2>
+                    <span class="badge-section">Simple Monthly Care</span>
+                    <h2 style="font-size: 2rem; font-weight: 700; color: #fff; margin-top: 1rem; margin-bottom: 1rem;">Choose the Level of Care You Need</h2>
                     <p style="color: var(--text-slate-400); font-size: 1rem;">
-                        Month-to-month. No long-term contract required.
+                        Start small, upgrade when your website needs more attention. Month-to-month. No long-term contract required.
                     </p>
                 </div>
 
-                <!-- Pricing Cards Grid -->
                 <div class="grid-1 grid-lg-3 mb-12">
-                    
-                    <!-- STARTER -->
+                    <!-- Starter Plan ($29) -->
                     <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
                             <div class="mb-4">
                                 <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">STARTER</h3>
                             </div>
-                            <p style="font-size: 0.75rem; color: var(--text-slate-400);" class="mb-6">Essential monitoring & maintenance for small brochure sites.</p>
+                            <p style="font-size: 0.875rem; color: var(--brand-400); font-weight: 600; margin-bottom: 0.5rem;">Keep your website healthy and online.</p>
+                            <p style="font-size: 0.75rem; color: var(--text-slate-400);" class="mb-6">For small brochure and informational websites that need regular attention.</p>
                             <div class="mb-6">
                                 <span style="font-size: 2.25rem; font-weight: 800; color: #fff;" class="font-mono">$29</span>
                                 <span style="color: var(--text-slate-400); font-size: 0.875rem;">/ month</span>
                             </div>
                             <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300); border-top: 1px solid var(--border-color); padding-top: 1.5rem;" class="mb-8">
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> WordPress Core & Plugin Update Review</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Weekly Backup Configuration / Check</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Uptime & SSL Monitoring</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Basic Security Hardening</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Monthly Website Health Report</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> WordPress core/plugin/theme updates</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Weekly backup checks</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Uptime & SSL monitoring</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Basic security hardening</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Monthly website health report</li>
+                                <li><span style="color: var(--text-slate-500); margin-right: 0.5rem;">•</span> Standard email support (24h)</li>
                             </ul>
                         </div>
-                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; text-align: center;">
-                            Request Care
-                        </a>
+                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; text-align: center;">Request Care</a>
                     </div>
 
-                    <!-- BUSINESS (MOST POPULAR) -->
-                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border: 2px solid var(--brand-500); position: relative;">
-                        <div style="position: absolute; top: -0.875rem; left: 50%; transform: translateX(-50%); padding: 0.25rem 1rem; border-radius: 9999px; background-color: var(--brand-500); color: #060a12; font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem; text-transform: uppercase;">
-                            Most Popular
-                        </div>
+                    <!-- Business Plan ($49 - Supercharged for Irresistible Value) -->
+                    <div class="card business-plan" style="display: flex; flex-direction: column; justify-content: space-between; border: 2px solid var(--brand-500); position: relative;">
+                        <div style="position: absolute; top: -0.875rem; left: 50%; transform: translateX(-50%); padding: 0.25rem 1rem; border-radius: 9999px; background-color: var(--brand-500); color: #060a12; font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Most Popular & Recommended</div>
                         <div>
                             <div class="mb-4" style="margin-top: 0.5rem;">
-                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">BUSINESS</h3>
+                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff;">BUSINESS</h3>
+                                <span class="plan-recommended"><span aria-hidden="true">●</span> Best value for active service & lead-gen sites</span>
                             </div>
-                            <p style="font-size: 0.75rem; color: var(--text-slate-400);" class="mb-6">Comprehensive care for active professional service websites.</p>
+                            <p style="font-size: 0.875rem; color: var(--brand-400); font-weight: 700; margin-bottom: 0.5rem;">Complete peace of mind for active business websites.</p>
+                            <p style="font-size: 0.75rem; color: var(--text-slate-300);" class="mb-6">For service sites that rely on their online presence for client inquiries, bookings and revenue.</p>
                             <div class="mb-6">
-                                <span style="font-size: 2.25rem; font-weight: 800; color: #fff;" class="font-mono">$59</span>
-                                <span style="color: var(--text-slate-400); font-size: 0.875rem;">/ month</span>
+                                <span style="font-size: 2.5rem; font-weight: 800; color: #fff;" class="font-mono">$49</span>
+                                <span style="color: var(--text-slate-300); font-size: 0.875rem;">/ month</span>
                             </div>
-                            <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300); border-top: 1px solid var(--border-color); padding-top: 1.5rem;" class="mb-8">
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Everything in Starter</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> More Frequent Backup Configuration (Where Supported)</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Malware Scanning</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Performance Monitoring</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Basic Performance Optimization</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Priority Email Support</li>
+                            <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-200); border-top: 1px solid var(--border-color); padding-top: 1.5rem;" class="mb-8">
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>Everything in Starter</strong></li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> More frequent backup checks (where supported)</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Active malware & vulnerability scanning</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Performance & speed monitoring</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Basic speed & Core Web Vitals optimization</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Database cleanup & optimization</li>
+                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>Priority email support (12-24h)</strong></li>
+                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>WhatsApp Text Support (Emergency Only)</strong></li>
                             </ul>
                         </div>
-                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; text-align: center;">
-                            Get Started
-                        </a>
+                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; text-align: center; font-size: 1rem; padding: 0.875rem;">Get Started Now</a>
                     </div>
 
-                    <!-- PRO -->
+                    <!-- Pro Plan ($99) -->
                     <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
                             <div class="mb-4">
                                 <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">PRO</h3>
                             </div>
-                            <p style="font-size: 0.75rem; color: var(--text-slate-400);" class="mb-6">Advanced care & performance tuning for higher-traffic sites.</p>
+                            <p style="font-size: 0.875rem; color: var(--brand-400); font-weight: 600; margin-bottom: 0.5rem;">Maximize reliability for business-critical sites.</p>
+                            <p style="font-size: 0.75rem; color: var(--text-slate-400);" class="mb-6">For higher-traffic sites where technical issues directly impact business revenue.</p>
                             <div class="mb-6">
                                 <span style="font-size: 2.25rem; font-weight: 800; color: #fff;" class="font-mono">$99</span>
                                 <span style="color: var(--text-slate-400); font-size: 0.875rem;">/ month</span>
                             </div>
                             <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300); border-top: 1px solid var(--border-color); padding-top: 1.5rem;" class="mb-8">
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Everything in Business</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Enhanced Monitoring</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Advanced Performance Optimization</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> CDN & WAF Configuration (Where Appropriate)</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Database Cleanup & Optimization</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Expanded Maintenance Scope</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Enhanced monitoring frequency</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Advanced performance optimization</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> CDN / WAF configuration where appropriate</li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Higher-priority support</li>
+                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Expanded maintenance scope</li>
+                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>High Priority email support (8-12h)</strong></li>
+                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>WhatsApp Text/Call Support</strong></li>
                             </ul>
                         </div>
-                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; text-align: center;">
-                            Request Care
-                        </a>
+                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; text-align: center;">Request Care</a>
                     </div>
-
                 </div>
 
-                <!-- Outside Scope Section -->
+                <!-- Scope Exclusions -->
                 <div class="max-w-3xl card mb-8" style="background-color: var(--bg-navy-900);">
                     <h4 style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;" class="font-mono text-center">OUTSIDE STANDARD MONTHLY SCOPE</h4>
                     <div class="grid-1 grid-sm-2" style="font-size: 0.875rem; color: var(--text-slate-400); margin-bottom: 0.75rem;">
-                        <div>• Major website redesigns</div>
-                        <div>• Full website migrations</div>
-                        <div>• Major malware recovery</div>
-                        <div>• Custom development</div>
-                        <div>• Premium plugin/theme licenses</div>
-                        <div>• Hosting costs</div>
-                        <div>• Paid third-party services</div>
-                        <div>• Major WooCommerce development</div>
+                        <div>• Major website redesigns</div><div>• Full website migrations</div><div>• Major malware recovery</div><div>• Custom development</div><div>• Premium plugin/theme licenses</div><div>• Hosting costs</div><div>• Paid third-party services</div><div>• Major WooCommerce development</div>
                     </div>
-                    <p style="font-size: 0.75rem; color: var(--text-slate-500);" class="text-center">
-                        These can be quoted separately as dedicated projects when required.
-                    </p>
+                    <p style="font-size: 0.75rem; color: var(--text-slate-500);" class="text-center">These can be quoted separately as dedicated projects if/when required by the client.</p>
                 </div>
 
-                <!-- Payment Trust Note -->
+                <!-- Marketplace Trust Route -->
                 <div class="max-w-2xl card text-center" style="background-color: var(--bg-navy-900);">
-                    <div style="font-size: 0.875rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem;">
+                    <div style="font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem;">
                         <svg class="icon" style="color: var(--brand-400); margin-right: 0.25rem;" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         Prefer to work through a marketplace?
                     </div>
-                    <p style="font-size: 0.875rem; color: var(--text-slate-300); line-height: 1.6;">
-                        Depending on how you found me, I can work through <strong>Fiverr</strong> or <strong>Upwork</strong>. These platforms handle payment processing and provide their own applicable transaction and dispute protections.
-                    </p>
-                    <p style="font-size: 0.75rem; color: var(--text-slate-500); margin-top: 0.5rem;">
-                        Platform fees, if applicable, are determined by the platform and shown during checkout.
+                    <p style="font-size: 0.875rem; color: var(--text-slate-300); line-height: 1.6;">Depending on how you found me, I can work through <strong>Fiverr</strong> or <strong>Upwork</strong>. These platforms handle payment processing and provide their own applicable transaction and dispute protections.</p>
+                    <p style="font-size: 0.75rem; color: var(--text-slate-500); margin-top: 0.5rem;">Platform fees, if applicable, are determined by the platform and shown during checkout.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 border-b" aria-label="Client peace of mind">
+            <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <span class="badge-section">Low-Risk, Clear & Transparent</span>
+                    <h2 style="font-size:1.65rem; font-weight:700; color:#fff; margin-top:0.9rem;">Your Website Stays Yours. You Stay in Control.</h2>
+                    <p style="color:var(--text-slate-400); font-size:0.95rem; max-width:42rem; margin:0.75rem auto 0;">
+                        The goal is simple: take routine WordPress responsibility off your plate without locking you into a black box or a long contract.
                     </p>
                 </div>
 
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <strong>Month-to-month</strong>
+                        <span>No long-term contract required. Change or stop care before the next billing cycle.</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>You keep ownership</strong>
+                        <span>Your domain, hosting, website and business accounts remain yours.</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>Clear boundaries</strong>
+                        <span>Major recovery, redesign and custom development are quoted separately.</span>
+                    </div>
+                    <div class="trust-item">
+                        <strong>Visible work</strong>
+                        <span>Maintenance changes, issues found and recommendations are summarized in your report.</span>
+                    </div>
+                </div>
+
+                <p class="section-note text-center">
+                    Free health checks are non-invasive. Access is requested only when needed to deliver an agreed care plan.
+                </p>
             </div>
         </section>
 
@@ -729,32 +1016,32 @@
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mb-16">
                     <span class="badge-section">Smooth Onboarding</span>
-                    <h2 style="font-size: 2rem; font-weight: 700; color: #fff; margin-top: 1rem; margin-bottom: 1rem;">How We Work Together</h2>
-                    <p style="color: var(--text-slate-400); font-size: 1rem;">A simple, direct process from health check to active maintenance.</p>
+                    <h2 style="font-size: 2rem; font-weight: 700; color: #fff; margin-top: 1rem; margin-bottom: 1rem;">A Simple Path to Better Website Care</h2>
+                    <p style="color: var(--text-slate-400); font-size: 1rem;">No complicated setup. We first understand the site, then recommend the level of care that actually fits it.</p>
                 </div>
 
                 <div class="grid-1 grid-md-3">
                     <div class="card">
                         <div style="font-size: 1.875rem; font-weight: 700; color: var(--brand-400); margin-bottom: 1rem;" class="font-mono">01</div>
-                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Free Website Health Check</h3>
+                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">See What Needs Attention</h3>
                         <p style="font-size: 0.875rem; color: var(--text-slate-400);">
-                            Submit your website URL. I conduct a thorough non-invasive public review covering uptime, security headers, SSL status, and site speed.
+                            Send your website URL. I review publicly observable indicators around uptime, SSL, performance, basic security configuration and maintenance risks — without needing administrator access.
                         </p>
                     </div>
 
                     <div class="card">
                         <div style="font-size: 1.875rem; font-weight: 700; color: var(--brand-400); margin-bottom: 1rem;" class="font-mono">02</div>
-                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Review & Plan Selection</h3>
+                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Get a Clear Recommendation</h3>
                         <p style="font-size: 0.875rem; color: var(--text-slate-400);">
-                            Receive a clear breakdown of actionable issues found along with the recommended Care Plan suitable for your site’s traffic and complexity.
+                            You receive a concise summary of priority issues and a recommended Care Plan based on your site’s needs, traffic and complexity.
                         </p>
                     </div>
 
                     <div class="card">
                         <div style="font-size: 1.875rem; font-weight: 700; color: var(--brand-400); margin-bottom: 1rem;" class="font-mono">03</div>
-                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Payment & Care Begins</h3>
+                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Start Ongoing Care</h3>
                         <p style="font-size: 0.875rem; color: var(--text-slate-400);">
-                            Choose your preferred payment route (Direct, Fiverr, or Upwork). Once confirmed, secure onboarding takes place and proactive care begins immediately.
+                            Choose a suitable payment route. Once confirmed, secure onboarding takes place and the agreed monitoring, maintenance and reporting work begins.
                         </p>
                     </div>
                 </div>
@@ -784,7 +1071,7 @@
                         </div>
 
                         <p style="font-size: 0.75rem; color: var(--text-slate-500); border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                            Your health check takes place through a secure Tally form. Note: Public health checks cannot replace a full authenticated security assessment.
+                            Your request is submitted through Tally. The health check itself is a non-invasive review of publicly observable website indicators. Public health checks cannot replace a full authenticated security assessment.
                         </p>
                     </div>
                 </div>
@@ -799,26 +1086,28 @@
                     <p style="color: var(--text-slate-400); font-size: 1rem;">Grounding WordPress administration in solid Linux server operations, network fundamentals, and systems administration.</p>
                 </div>
 
-                <div class="grid-1 grid-lg-2">
+                <div class="grid-1 grid-sm-2">
                     
-                    <!-- Certification & Technical Credentials -->
-                    <div class="card">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                            <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--brand-500); display: flex; align-items: center; justify-content: center; color: var(--brand-400); font-weight: 700;" class="font-mono">
-                                C|CT
+                    <!-- Certification & Technical Credentials (50% Width on Tablet & Desktop) -->
+                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="width: 3.25rem; height: 3.25rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--brand-500); display: flex; align-items: center; justify-content: center; color: var(--brand-400); font-weight: 700;" class="font-mono">
+                                    C|CT
+                                </div>
+                                <div>
+                                    <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff;">EC-Council Certified Cybersecurity Technician</h3>
+                                    <p style="font-size: 0.75rem; color: var(--text-slate-400);" class="font-mono">Credential ID: ECC4976018235 (Issue: Sept 2024 – Sept 2027)</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff;">EC-Council Certified Cybersecurity Technician</h3>
-                                <p style="font-size: 0.75rem; color: var(--text-slate-400);" class="font-mono">Credential ID: ECC4976018235 (Issue: Sept 2024 – Sept 2027)</p>
-                            </div>
+                            <p style="font-size: 0.875rem; color: var(--text-slate-300); line-height: 1.6; margin-bottom: 1.5rem;">
+                                Formal examination covering system hardening, network protocols, threat analysis, incident response, vulnerability assessments, and web application security controls.
+                            </p>
                         </div>
-                        <p style="font-size: 0.875rem; color: var(--text-slate-300); line-height: 1.6; margin-bottom: 1.5rem;">
-                            Formal examination covering system hardening, network protocols, threat analysis, incident response, vulnerability assessments, and web application security controls.
-                        </p>
                         
                         <div style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
                             <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-slate-400); margin-bottom: 0.75rem;" class="font-mono">Supporting Skill Hierarchy:</h4>
-                            <div class="grid-1 grid-sm-2" style="font-size: 0.875rem; color: var(--text-slate-300);">
+                            <div class="grid-1 grid-sm-2" style="font-size: 0.875rem; color: var(--text-slate-300); gap: 0.5rem;">
                                 <div>1. WordPress Administration</div>
                                 <div>2. Website Reliability & Monitoring</div>
                                 <div>3. Core Updates & Maintenance</div>
@@ -829,34 +1118,44 @@
                         </div>
                     </div>
 
-                    <!-- Operational Experience & History -->
+                    <!-- Operational Experience & Roles (50% Width on Tablet & Desktop) -->
                     <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Operational Experience & Roles</h3>
-                            <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.875rem; color: var(--text-slate-300);">
-                                <div style="border-left: 2px solid var(--brand-500); padding-left: 1rem;">
+                            <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 1.25rem;">Operational Experience & Roles</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.875rem; color: var(--text-slate-300);">
+                                <div style="border-left: 2px solid var(--brand-500); padding-left: 0.85rem;">
                                     <div style="font-weight: 600; color: #fff;">Junior Officer (Admin M.I.S)</div>
                                     <div style="font-size: 0.75rem; color: var(--text-slate-400);">Eve Group (BD) • Oct 2022 – Present</div>
                                 </div>
-                                <div style="border-left: 2px solid var(--brand-500); padding-left: 1rem;">
+                                <div style="border-left: 2px solid var(--brand-500); padding-left: 0.85rem;">
                                     <div style="font-weight: 600; color: #fff;">Chief Technical Officer</div>
                                     <div style="font-size: 0.75rem; color: var(--text-slate-400);">Noor-A Rahman IT Solutions (NRIT) • Nov 2020 – Present</div>
                                 </div>
-                                <div style="border-left: 2px solid var(--border-color); padding-left: 1rem;">
+                                <div style="border-left: 2px solid var(--border-color); padding-left: 0.85rem;">
                                     <div style="font-weight: 600; color: #fff;">Instructional Designer (IT, Cloud & Cyber)</div>
                                     <div style="font-size: 0.75rem; color: var(--text-slate-400);">RDK LIVE (UK Remote) • Mar 2022 – Jun 2022</div>
                                 </div>
-                                <div style="border-left: 2px solid var(--border-color); padding-left: 1rem;">
+                                <div style="border-left: 2px solid var(--border-color); padding-left: 0.85rem;">
                                     <div style="font-weight: 600; color: #fff;">Creative Team Manager / Web Administrator</div>
                                     <div style="font-size: 0.75rem; color: var(--text-slate-400);">Signature Group (Canada Remote) • May 2017 – Nov 2021</div>
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.75rem; color: var(--text-slate-400);">
+                        <div style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px solid var(--border-color); font-size: 0.75rem; color: var(--text-slate-400);">
                             Independent Contractor on Upwork & Fiverr since November 2013 serving international clients across North America, Europe, and Asia-Pacific.
                         </div>
                     </div>
 
+                </div>
+
+                <!-- Supporting Tech Stack Badges -->
+                <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;" aria-label="Core Technology Environment">
+                    <span class="tech-badge"><svg class="icon" style="color:var(--brand-400)" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> WordPress</span>
+                    <span class="tech-badge"><svg class="icon" style="color:var(--brand-400)" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Cloudflare</span>
+                    <span class="tech-badge"><svg class="icon" style="color:var(--brand-400)" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Linux / Ubuntu</span>
+                    <span class="tech-badge"><svg class="icon" style="color:var(--brand-400)" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Nginx & Apache</span>
+                    <span class="tech-badge"><svg class="icon" style="color:var(--brand-400)" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7"/></svg> MySQL & MariaDB</span>
+                    <span class="tech-badge"><svg class="icon" style="color:var(--brand-400)" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg> PHP Tuning</span>
                 </div>
             </div>
         </section>
@@ -1074,6 +1373,11 @@
         </section>
     </main>
 
+    <!-- Floating Back to Top Control -->
+    <a href="#top" id="back-to-top" aria-label="Back to top" title="Back to top">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg>
+    </a>
+
     <footer class="border-t py-12" style="background-color: var(--bg-navy-950); font-size: 0.75rem; color: var(--text-slate-400);">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
             <div style="display: flex; flex-direction: column; gap: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem;" class="grid-md-2">
@@ -1098,7 +1402,7 @@
         // Dynamic Copyright Year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Navigation Toggle
+        // Mobile Navigation Drawer Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1108,7 +1412,7 @@
                 mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             });
 
-            // Close mobile drawer when clicking menu items
+            // Close drawer on link click
             mobileMenu.querySelectorAll('a').forEach(function(link) {
                 link.addEventListener('click', function() {
                     mobileMenu.classList.remove('open');
@@ -1117,7 +1421,19 @@
             });
         }
 
-        // Portfolio Category Filter - Non-global event listener approach
+        // Floating Back-to-Top Control
+        const backToTop = document.getElementById('back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }, { passive: true });
+        }
+
+        // Portfolio Filter Tabs
         const portfolioTabs = document.querySelectorAll('.portfolio-tab');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
@@ -1129,7 +1445,7 @@
                 portfolioTabs.forEach(function(t) { t.classList.remove('active'); });
                 e.currentTarget.classList.add('active');
 
-                // Filter cards
+                // Filter portfolio items
                 portfolioItems.forEach(function(item) {
                     if (category === 'all' || item.classList.contains(category)) {
                         item.classList.remove('hidden');
@@ -1142,3 +1458,4 @@
     </script>
 </body>
 </html>
+```
