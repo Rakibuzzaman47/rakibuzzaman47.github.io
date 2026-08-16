@@ -243,6 +243,7 @@
         .font-mono { font-family: var(--font-mono); }
         .text-brand-400 { color: var(--brand-400); }
         .text-white { color: var(--text-white); }
+        .text-slate-200 { color: var(--text-slate-200); }
         .text-slate-300 { color: var(--text-slate-300); }
         .text-slate-400 { color: var(--text-slate-400); }
         .text-slate-500 { color: var(--text-slate-500); }
@@ -417,6 +418,29 @@
             transform: translateY(-2px);
         }
 
+        /* Floating WhatsApp Button */
+        #whatsapp-float {
+            position: fixed;
+            left: 1.25rem;
+            bottom: max(1.25rem, env(safe-area-inset-bottom));
+            z-index: 60;
+            width: 2.75rem;
+            height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            background-color: #25d366;
+            color: #0f172a;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #whatsapp-float:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.4);
+        }
+
         /* Tech Stack Badges */
         .tech-badge {
             display: inline-flex;
@@ -539,7 +563,7 @@
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto !important; }
-            #back-to-top { transition: none; }
+            #back-to-top, #whatsapp-float { transition: none; }
             .pulse-dot { animation: none; }
             .card, .business-plan, .btn-primary, .btn-secondary { transition: none; }
         }
@@ -597,6 +621,7 @@
                     <a href="#services">Services</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#how-it-works">How It Works</a>
+                    <a href="#assessment">Free Assessment</a>
                     <a href="#technical">Background</a>
                     <a href="#portfolio">Portfolio</a>
                     <a href="#about">About</a>
@@ -606,7 +631,7 @@
                 <!-- Header CTA Button -->
                 <div style="display: flex; align-items: center; gap: 1rem;">
                     <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary header-cta">
-                        Free Health Check
+                        Free 10-Point Assessment
                     </a>
 
                     <!-- Mobile Menu Toggle Button -->
@@ -622,19 +647,21 @@
             <a href="#services">Services</a>
             <a href="#pricing">Pricing</a>
             <a href="#how-it-works">How It Works</a>
+            <a href="#assessment">Free Assessment</a>
             <a href="#technical">Technical Background</a>
             <a href="#portfolio">Selected Work</a>
             <a href="#about">About</a>
             <a href="#faq">FAQ</a>
             <div style="padding-top: 0.75rem; border-top: 1px solid var(--border-color); margin-top: 0.5rem;">
                 <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; text-align: center; display: block;">
-                    Get Free Health Check
+                    Get Free 10-Point Assessment
                 </a>
             </div>
         </div>
     </header>
 
     <main style="flex-grow: 1;">
+        <!-- Hero Section -->
         <section class="grid-pattern border-b py-20" style="position: relative; overflow: hidden;">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="hero-layout">
@@ -652,13 +679,13 @@
 
                         <!-- Supporting Message -->
                         <p style="font-size: 1.125rem; color: var(--text-slate-300); line-height: 1.7; margin-bottom: 2rem;">
-                            I help small businesses keep their WordPress websites monitored, maintained, backed up and performing reliably — without needing an in-house technical team.
+                            Your website should work reliably without becoming another thing you have to worry about. I help small businesses keep their WordPress sites monitored, maintained, backed up and performing reliably — without needing an in-house technical team.
                         </p>
 
                         <!-- Hero CTAs -->
                         <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
-                            <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                                Get a Free Website Health Check
+                            <a href="#assessment" class="btn-primary">
+                                Get a Free 10-Point Assessment
                                 <svg class="icon" style="margin-left: 0.5rem;" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                             <a href="#pricing" class="btn-secondary">
@@ -697,7 +724,7 @@
                         <div class="health-row">
                             <div class="health-icon" aria-hidden="true">✓</div>
                             <div>
-                                <strong style="display:block; color:#fff; font-size:0.84rem;">Uptime & SSL</strong>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Uptime & Availability</strong>
                                 <span style="color:var(--text-slate-500); font-size:0.72rem;">Availability signals & certificate health</span>
                             </div>
                             <span class="health-state">Watch</span>
@@ -706,7 +733,7 @@
                         <div class="health-row">
                             <div class="health-icon" aria-hidden="true">✓</div>
                             <div>
-                                <strong style="display:block; color:#fff; font-size:0.84rem;">Security</strong>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Security Hardening</strong>
                                 <span style="color:var(--text-slate-500); font-size:0.72rem;">Hardening, scanning & maintenance risks</span>
                             </div>
                             <span class="health-state">Watch</span>
@@ -715,7 +742,7 @@
                         <div class="health-row">
                             <div class="health-icon" aria-hidden="true">✓</div>
                             <div>
-                                <strong style="display:block; color:#fff; font-size:0.84rem;">Backups</strong>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Backup Configuration</strong>
                                 <span style="color:var(--text-slate-500); font-size:0.72rem;">Scheduled and pre-update safety checks</span>
                             </div>
                             <span class="health-state">Check</span>
@@ -724,7 +751,7 @@
                         <div class="health-row">
                             <div class="health-icon" aria-hidden="true">✓</div>
                             <div>
-                                <strong style="display:block; color:#fff; font-size:0.84rem;">Performance</strong>
+                                <strong style="display:block; color:#fff; font-size:0.84rem;">Performance Tuning</strong>
                                 <span style="color:var(--text-slate-500); font-size:0.72rem;">Speed signals, bottlenecks & practical tuning</span>
                             </div>
                             <span class="health-state">Improve</span>
@@ -738,6 +765,7 @@
             </div>
         </section>
 
+        <!-- Trust Badges Bar -->
         <section class="border-b py-12" style="background-color: var(--bg-navy-950);">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="grid-1 grid-sm-2 grid-md-4 text-center">
@@ -750,8 +778,8 @@
                         <div style="font-size: 0.75rem; color: var(--text-slate-400);">EC-Council Cybersecurity Tech</div>
                     </div>
                     <div style="padding: 1rem; border-radius: 0.75rem; background-color: rgba(11, 17, 32, 0.5); border: 1px solid var(--border-color);">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;" class="font-mono">Automated</div>
-                        <div style="font-size: 0.75rem; color: var(--text-slate-400);">Uptime & SSL Health Checks</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;" class="font-mono">Transparent</div>
+                        <div style="font-size: 0.75rem; color: var(--text-slate-400);">Monthly Website Health Reports</div>
                     </div>
                     <div style="padding: 1rem; border-radius: 0.75rem; background-color: rgba(11, 17, 32, 0.5); border: 1px solid var(--border-color);">
                         <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;" class="font-mono">100% Remote</div>
@@ -761,13 +789,14 @@
             </div>
         </section>
 
+        <!-- Services Section -->
         <section id="services" class="py-20 border-b">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mb-16">
                     <span class="badge-section">What I Look After</span>
                     <h2 style="font-size: 2rem; font-weight: 700; color: #fff; margin-top: 1rem; margin-bottom: 1rem;">Managed WordPress Care</h2>
                     <p style="color: var(--text-slate-400); font-size: 1.125rem;">
-                        The goal is simple: keep your website available, maintained, protected, backed up, and working well — so you can focus on the business behind it.
+                        Your website should work reliably without becoming another thing you have to worry about.
                     </p>
                 </div>
 
@@ -835,7 +864,7 @@
 
                     <div class="card">
                         <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: var(--bg-navy-900); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--brand-400); margin-bottom: 1.5rem;">
-                            <svg class="icon" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
                         </div>
                         <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Keep WordPress Maintained</h3>
                         <p style="font-size: 0.8125rem; color: var(--text-slate-400); margin-bottom: 1rem;">Avoid neglected updates and catch compatibility problems earlier.</p>
@@ -866,6 +895,7 @@
             </div>
         </section>
 
+        <!-- Pricing Section -->
         <section id="pricing" class="py-20 border-b" style="background-color: var(--bg-navy-950);">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mb-16">
@@ -895,22 +925,22 @@
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Uptime & SSL monitoring</li>
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Basic security hardening</li>
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Monthly website health report</li>
-                                <li><span style="color: var(--text-slate-500); margin-right: 0.5rem;">•</span> Standard email support (24h)</li>
+                                <li><span style="color: var(--text-slate-500); margin-right: 0.5rem;">•</span> Typical email response: 24 business hours</li>
                             </ul>
                         </div>
                         <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; text-align: center;">Request Care</a>
                     </div>
 
-                    <!-- Business Plan ($49 - Supercharged for Irresistible Value) -->
+                    <!-- Business Plan ($49 - BEST VALUE) -->
                     <div class="card business-plan" style="display: flex; flex-direction: column; justify-content: space-between; border: 2px solid var(--brand-500); position: relative;">
-                        <div style="position: absolute; top: -0.875rem; left: 50%; transform: translateX(-50%); padding: 0.25rem 1rem; border-radius: 9999px; background-color: var(--brand-500); color: #060a12; font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Most Popular & Recommended</div>
+                        <div style="position: absolute; top: -0.875rem; left: 50%; transform: translateX(-50%); padding: 0.25rem 1rem; border-radius: 9999px; background-color: var(--brand-500); color: #060a12; font-family: var(--font-mono); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">BEST VALUE</div>
                         <div>
                             <div class="mb-4" style="margin-top: 0.5rem;">
                                 <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff;">BUSINESS</h3>
-                                <span class="plan-recommended"><span aria-hidden="true">●</span> Best value for active service & lead-gen sites</span>
+                                <span class="plan-recommended"><span aria-hidden="true">●</span> Recommended choice for active service & lead-gen sites</span>
                             </div>
                             <p style="font-size: 0.875rem; color: var(--brand-400); font-weight: 700; margin-bottom: 0.5rem;">Complete peace of mind for active business websites.</p>
-                            <p style="font-size: 0.75rem; color: var(--text-slate-300);" class="mb-6">For service sites that rely on their online presence for client inquiries, bookings and revenue.</p>
+                            <p style="font-size: 0.75rem; color: var(--text-slate-300);" class="mb-6">$49/month means you don't have to worry about routine WordPress technical maintenance.</p>
                             <div class="mb-6">
                                 <span style="font-size: 2.5rem; font-weight: 800; color: #fff;" class="font-mono">$49</span>
                                 <span style="color: var(--text-slate-300); font-size: 0.875rem;">/ month</span>
@@ -922,8 +952,8 @@
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Performance & speed monitoring</li>
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Basic speed & Core Web Vitals optimization</li>
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Database cleanup & optimization</li>
-                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>Priority email support (12-24h)</strong></li>
-                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>WhatsApp Text Support (Emergency Only)</strong></li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>Typical email response: 12–24 business hours</strong></li>
+                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>WhatsApp text support for urgent website issues</strong></li>
                             </ul>
                         </div>
                         <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; text-align: center; font-size: 1rem; padding: 0.875rem;">Get Started Now</a>
@@ -946,10 +976,8 @@
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Enhanced monitoring frequency</li>
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Advanced performance optimization</li>
                                 <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> CDN / WAF configuration where appropriate</li>
-                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Higher-priority support</li>
-                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Expanded maintenance scope</li>
-                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>High Priority email support (8-12h)</strong></li>
-                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>WhatsApp Text/Call Support</strong></li>
+                                <li style="margin-bottom: 0.75rem;"><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> Expanded maintenance scope</li>
+                                <li><span style="color: var(--brand-400); font-weight: bold; margin-right: 0.5rem;">✓</span> <strong>High priority email support (8–12h) + WhatsApp text support</strong></li>
                             </ul>
                         </div>
                         <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width: 100%; text-align: center;">Request Care</a>
@@ -960,7 +988,7 @@
                 <div class="max-w-3xl card mb-8" style="background-color: var(--bg-navy-900);">
                     <h4 style="font-size: 0.875rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;" class="font-mono text-center">OUTSIDE STANDARD MONTHLY SCOPE</h4>
                     <div class="grid-1 grid-sm-2" style="font-size: 0.875rem; color: var(--text-slate-400); margin-bottom: 0.75rem;">
-                        <div>• Major website redesigns</div><div>• Full website migrations</div><div>• Major malware recovery</div><div>• Custom development</div><div>• Premium plugin/theme licenses</div><div>• Hosting costs</div><div>• Paid third-party services</div><div>• Major WooCommerce development</div>
+                        <div>• website redesigns</div><div>• Full website migrations</div><div>• Major malware recovery</div><div>• Custom development</div><div>• Premium plugin/theme licenses</div><div>• Hosting costs</div><div>• Paid third-party services</div><div>• Major WooCommerce development</div>
                     </div>
                     <p style="font-size: 0.75rem; color: var(--text-slate-500);" class="text-center">These can be quoted separately as dedicated projects if/when required by the client.</p>
                 </div>
@@ -977,6 +1005,7 @@
             </div>
         </section>
 
+        <!-- Ownership / Risk Reduction Section -->
         <section class="py-12 border-b" aria-label="Client peace of mind">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8">
@@ -1012,6 +1041,7 @@
             </div>
         </section>
 
+        <!-- How It Works -->
         <section id="how-it-works" class="py-20 border-b">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mb-16">
@@ -1048,36 +1078,164 @@
             </div>
         </section>
 
-        <section id="health-check" class="py-20 border-b" style="background-color: var(--bg-navy-950);">
-            <div class="max-w-4xl px-4 sm:px-6 lg:px-8">
-                <div class="card border-glow text-center" style="padding: 2.5rem 1.5rem; background-color: var(--bg-navy-900); border-color: rgba(20, 184, 166, 0.3);">
-                    <div class="max-w-2xl">
-                        <span class="badge-section mb-4">No Obligation</span>
-                        <h2 style="font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: 1rem;">
-                            Not sure how healthy your WordPress website really is?
-                        </h2>
-                        <p style="color: var(--text-slate-300); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                            Send me your website URL and I'll review publicly observable indicators around uptime, SSL, performance, basic security configuration and WordPress maintenance risks.
-                        </p>
-                        <p style="font-size: 0.8125rem; color: var(--brand-400); margin-bottom: 1.5rem;" class="font-mono">
-                            Non-invasive and performed without requiring administrator access.
-                        </p>
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1rem; padding: 0.875rem 2rem;">
-                                Open Free Health Check Form
-                                <svg class="icon" style="margin-left: 0.5rem;" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                            </a>
+        <!-- FREE 10-POINT WEBSITE ASSESSMENT SECTION -->
+        <section id="assessment" class="py-20 border-b" style="background-color: var(--bg-navy-950);">
+            <div class="max-w-5xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mb-16">
+                    <span class="badge-section">Free Lead Magnet</span>
+                    <h2 style="font-size: 2rem; font-weight: 700; color: #fff; margin-top: 1rem; margin-bottom: 1rem;">FREE 10-POINT WEBSITE ASSESSMENT</h2>
+                    <p style="color: var(--text-slate-300); font-size: 1.125rem; line-height: 1.6; margin-bottom: 1rem;">
+                        Find out what your WordPress website may need before paying for anything.
+                    </p>
+                    <p style="color: var(--brand-400); font-size: 0.875rem;" class="font-mono">
+                        No WordPress login. No hosting access. No password required.
+                    </p>
+                </div>
+
+                <!-- 10-Point Checklist Grid -->
+                <div class="grid-1 grid-sm-2 grid-md-5 mb-12" style="gap: 1rem;">
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">01</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Performance & Speed</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">02</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Uptime & Availability Check</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">03</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">SSL Certificate</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">04</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">WordPress Basic Security</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">05</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Malware & Blacklist</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">06</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Mobile Responsiveness</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">07</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Broken Links</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">08</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Technology Stack</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">09</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Google Rich Results</div>
+                    </div>
+                    <div class="card" style="padding: 1rem; text-align: center; background-color: var(--bg-navy-900);">
+                        <div style="color: var(--brand-400); font-weight: 700; margin-bottom: 0.25rem;" class="font-mono">10</div>
+                        <div style="font-size: 0.8125rem; color: #fff; font-weight: 600;">Public Backup Exposure Check</div>
+                    </div>
+                </div>
+
+                <!-- Assessment CTA Card -->
+                <div class="card border-glow text-center max-w-3xl" style="margin: 0 auto; padding: 2.5rem 1.5rem; background-color: var(--bg-navy-900); border-color: rgba(20, 184, 166, 0.4);">
+                    <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1rem;">
+                        Ready for Your Free 10-Point Assessment?
+                    </h3>
+                    <p style="color: var(--text-slate-300); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Send me your website URL and I'll review publicly observable indicators across all 10 checkpoints.
+                    </p>
+                    <div style="margin-bottom: 1.5rem;">
+                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1rem; padding: 0.875rem 2rem;">
+                            Get My Free Website Assessment
+                            <svg class="icon" style="margin-left: 0.5rem;" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-slate-500); line-height: 1.5;">
+                        This is a non-invasive external assessment, not a full authenticated security assessment or penetration test. Your request is processed securely via Tally.
+                    </p>
+                </div>
+
+                <!-- SAMPLE REPORT SECTION -->
+                <div class="max-w-3xl mt-16" style="margin-left: auto; margin-right: auto;">
+                    <div class="text-center mb-8">
+                        <span class="badge-section">Preview</span>
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-top: 0.75rem;">See What You'll Receive</h3>
+                        <p style="color: var(--text-slate-400); font-size: 0.875rem;">Here is a sample view of the actionable technical report delivered after review.</p>
+                    </div>
+
+                    <div class="card" style="background-color: var(--bg-navy-900); border: 1px dashed rgba(20, 184, 166, 0.35); padding: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <div style="font-size: 0.75rem; color: var(--brand-400); text-transform: uppercase;" class="font-mono">SAMPLE REPORT</div>
+                                <div style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-top: 0.15rem;">WEBSITE HEALTH ASSESSMENT</div>
+                            </div>
+                            <div style="font-size: 0.8125rem; color: var(--text-slate-400);" class="font-mono">Target: example-business.com</div>
                         </div>
 
-                        <p style="font-size: 0.75rem; color: var(--text-slate-500); border-top: 1px solid var(--border-color); padding-top: 1rem;">
-                            Your request is submitted through Tally. The health check itself is a non-invasive review of publicly observable website indicators. Public health checks cannot replace a full authenticated security assessment.
-                        </p>
+                        <!-- Sample Checklist Results -->
+                        <div class="grid-1 grid-sm-2" style="gap: 0.75rem; font-size: 0.875rem; margin-bottom: 1.5rem;" class="font-mono">
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">01. Performance & Speed</span>
+                                <span style="color: #f59e0b; font-weight: 600;">ATTENTION</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">02. Uptime & Availability</span>
+                                <span style="color: var(--brand-400); font-weight: 600;">PASS</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">03. SSL Certificate</span>
+                                <span style="color: var(--brand-400); font-weight: 600;">PASS</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">04. WordPress Basic Security</span>
+                                <span style="color: #f59e0b; font-weight: 600;">REVIEW</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">05. Malware & Blacklist</span>
+                                <span style="color: var(--brand-400); font-weight: 600;">PASS</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">06. Mobile Responsiveness</span>
+                                <span style="color: var(--brand-400); font-weight: 600;">PASS</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">07. Broken Links</span>
+                                <span style="color: #f59e0b; font-weight: 600;">REVIEW</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">08. Technology Stack</span>
+                                <span style="color: var(--brand-400); font-weight: 600;">PASS</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">09. Google Rich Results</span>
+                                <span style="color: var(--brand-400); font-weight: 600;">PASS</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0.75rem; background: rgba(15,23,42,0.6); border-radius: 0.375rem;">
+                                <span style="color: var(--text-slate-300);">10. Public Backup Exposure</span>
+                                <span style="color: var(--brand-400); font-weight: 600;">PASS</span>
+                            </div>
+                        </div>
+
+                        <!-- Priority Findings -->
+                        <div style="margin-bottom: 1.25rem;">
+                            <h4 style="font-size: 0.8125rem; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 0.5rem;" class="font-mono">Priority Findings:</h4>
+                            <ul style="list-style: none; font-size: 0.875rem; color: var(--text-slate-300); display: flex; flex-direction: column; gap: 0.35rem;">
+                                <li>• 01. Large unoptimized page assets affecting initial load time.</li>
+                                <li>• 02. Missing or recommended security configuration headers.</li>
+                                <li>• 03. Detected broken internal links affecting user navigation.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Recommended Next Steps -->
+                        <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; font-size: 0.875rem; color: var(--text-slate-300);">
+                            <span style="font-weight: 700; color: var(--brand-400);" class="font-mono">Recommended Next Steps:</span> Address high-priority findings through scheduled maintenance or professional optimization.
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Technical Background Section -->
         <section id="technical" class="py-20 border-b">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mb-16">
@@ -1160,6 +1318,7 @@
             </div>
         </section>
 
+        <!-- Portfolio Section -->
         <section id="portfolio" class="py-20 border-b" style="background-color: var(--bg-navy-950);">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mb-12">
@@ -1202,7 +1361,7 @@
                         <div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
                                 <span style="font-size: 0.75rem; color: var(--brand-400); background-color: var(--brand-950); padding: 0.125rem 0.5rem; border-radius: 0.25rem; border: 1px solid rgba(20,184,166,0.3);" class="font-mono">Performance</span>
-                                <span style="font-size: 0.75rem; color: var(--text-slate-500);">Capability / Example</span>
+                                <span style="font-size: 0.75rem; color: var(--text-slate-500);">Capability Example</span>
                             </div>
                             <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Speed & Core Web Vitals Audit</h3>
                             <p style="font-size: 0.875rem; color: var(--text-slate-400); margin-bottom: 1rem;">
@@ -1252,6 +1411,7 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="py-20 border-b">
             <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="grid-1 grid-lg-12" style="align-items: center;">
@@ -1269,6 +1429,7 @@
                             <div style="border-top: 1px solid var(--border-color); padding-top: 1rem; font-size: 0.75rem; color: var(--text-slate-400);" class="font-mono">
                                 <div style="margin-bottom: 0.25rem;">Location: Dhaka, Bangladesh</div>
                                 <div style="margin-bottom: 0.25rem;">Email: <a href="mailto:rakibuzzaman47@gmail.com" style="color: var(--brand-400); text-decoration: underline;">rakibuzzaman47@gmail.com</a></div>
+                                <div style="margin-bottom: 0.25rem;">LinkedIn: <a href="https://linkedin.com/in/rakibuzzaman47" target="_blank" rel="noopener noreferrer" style="color: var(--brand-400); text-decoration: underline;">linkedin.com/in/rakibuzzaman47</a></div>
                                 <div>GitHub: <a href="https://github.com/Rakibuzzaman47" target="_blank" rel="noopener noreferrer" style="color: var(--brand-400);">github.com/Rakibuzzaman47</a></div>
                             </div>
                         </div>
@@ -1310,6 +1471,7 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
         <section id="faq" class="py-20 border-b" style="background-color: var(--bg-navy-950);">
             <div class="max-w-4xl px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -1320,9 +1482,9 @@
                 <div style="display: flex; flex-direction: column; gap: 1rem;">
                     
                     <div class="card" style="background-color: var(--bg-navy-900);">
-                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">What is included in the Free Website Health Check?</h3>
+                        <h3 style="font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">What is included in the Free 10-Point Website Assessment?</h3>
                         <p style="font-size: 0.875rem; color: var(--text-slate-400); line-height: 1.6;">
-                            I review publicly visible indicators of your WordPress website including uptime response, SSL setup, fundamental security headers, page load performance, and core maintenance risks. You receive a concise summary of priority issues after the review.
+                            I review publicly observable indicators across performance, uptime, SSL, security, malware, mobile responsiveness, broken links, technology stack, rich results, and public backup exposure. You receive a concise summary of priority issues after the review.
                         </p>
                     </div>
 
@@ -1351,6 +1513,40 @@
             </div>
         </section>
 
+        <!-- PRIVACY / TERMS / SERVICE SCOPE SECTION -->
+        <section id="legal" class="py-16 border-b">
+            <div class="max-w-4xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="badge-section">Transparency</span>
+                    <h2 style="font-size: 1.75rem; font-weight: 700; color: #fff; margin-top: 0.75rem;">Privacy, Terms & Service Scope</h2>
+                </div>
+
+                <div class="grid-1 grid-md-3" style="gap: 1.5rem; font-size: 0.875rem;">
+                    <div class="card" style="background-color: var(--bg-navy-850);">
+                        <h3 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;" class="font-mono">PRIVACY</h3>
+                        <p style="color: var(--text-slate-400); line-height: 1.6;">
+                            Information submitted through the Tally assessment form is used solely to respond to your request or service inquiry. No unnecessary tracking cookies are used, and you may request data deletion at any time by contacting me directly.
+                        </p>
+                    </div>
+
+                    <div class="card" style="background-color: var(--bg-navy-850);">
+                        <h3 style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;" class="font-mono">TERMS</h3>
+                        <p style="color: var(--text-slate-400); line-height: 1.6;">
+                            Services are provided according to agreed scope. Monthly plans are month-to-month. Major recovery, redesign, and custom development are quoted separately. Support response times are targets rather than guaranteed SLAs unless explicitly agreed.
+                        </p>
+                    </div>
+
+                    <div class="card" style="background-color: var(--bg-navy-850);">
+                        <h3 style="font-size: 1.0rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;" class="font-mono">SERVICE SCOPE</h3>
+                        <p style="color: var(--text-slate-400); line-height: 1.6;">
+                            Clearly distinguishes between the Free 10-Point External Assessment, Authenticated Paid Maintenance Plans, and Separate Custom Project Work. Client retains full ownership of domain, hosting, and site assets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Conversion Callout -->
         <section class="py-20">
             <div class="max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
                 <div class="card" style="padding: 2.5rem 1.5rem; background-color: var(--bg-navy-850);">
@@ -1358,11 +1554,11 @@
                         Want a More Reliable WordPress Website?
                     </h2>
                     <p style="color: var(--text-slate-300); font-size: 1.125rem; margin-bottom: 2rem;" class="max-w-2xl">
-                        Get your free non-invasive health check today and find out what your site needs to stay fast, secure, and reliable.
+                        Get your free 10-point assessment today and find out what your site needs to stay fast, secure, and reliable.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; align-items: center;">
-                        <a href="https://tally.so/r/ZjABDv" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1rem; padding: 0.875rem 2rem;">
-                            Get My Free Website Health Check
+                        <a href="#assessment" class="btn-primary" style="font-size: 1rem; padding: 0.875rem 2rem;">
+                            Get My Free 10-Point Assessment
                         </a>
                         <a href="#pricing" class="btn-secondary" style="font-size: 1rem; padding: 0.875rem 2rem;">
                             Explore Pricing
@@ -1373,11 +1569,17 @@
         </section>
     </main>
 
+    <!-- Floating WhatsApp Contact Button -->
+    <a href="https://wa.me/8801976241050" target="_blank" rel="noopener noreferrer" id="whatsapp-float" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+        <svg class="icon" style="width: 1.5rem; height: 1.5rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+
     <!-- Floating Back to Top Control -->
     <a href="#top" id="back-to-top" aria-label="Back to top" title="Back to top">
         <svg class="icon" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg>
     </a>
 
+    <!-- Footer -->
     <footer class="border-t py-12" style="background-color: var(--bg-navy-950); font-size: 0.75rem; color: var(--text-slate-400);">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-8">
             <div style="display: flex; flex-direction: column; gap: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem;" class="grid-md-2">
@@ -1385,15 +1587,19 @@
                     <span style="color: #fff; font-weight: 700; font-size: 1rem; display: block;">Rakib Uzzaman</span>
                     <span style="color: var(--text-slate-400);">WordPress Reliability & Web Operations</span>
                 </div>
-                <div style="display: flex; gap: 1.5rem; font-size: 0.875rem;">
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem;">
                     <a href="https://linkedin.com/in/rakibuzzaman47" target="_blank" rel="noopener noreferrer" style="color: var(--text-slate-300);">LinkedIn</a>
                     <a href="https://github.com/Rakibuzzaman47" target="_blank" rel="noopener noreferrer" style="color: var(--text-slate-300);">GitHub</a>
                     <a href="https://tryhackme.com/p/rakibuzzaman47" target="_blank" rel="noopener noreferrer" style="color: var(--text-slate-300);">TryHackMe</a>
+                    <a href="https://wa.me/8801976241050" target="_blank" rel="noopener noreferrer" style="color: var(--brand-400);">WhatsApp</a>
                 </div>
             </div>
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; color: var(--text-slate-500);">
-                <p>&copy; <span id="year"></span> Rakib Uzzaman. All rights reserved.</p>
-                <p>Hosted static on GitHub Pages. No tracking cookies or backend databases used.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; color: var(--text-slate-500); align-items: center;">
+                <p>&copy; <span id="year"></span> Rakib Uzzaman. All rights reserved. Based in Dhaka, Bangladesh.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#legal" style="color: var(--text-slate-400);">Privacy & Terms</a>
+                    <a href="#assessment" style="color: var(--text-slate-400);">Free Assessment</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -1456,6 +1662,6 @@
             });
         });
     </script>
+    <script defer src="https://deploy.schemacdn.com"></script>
 </body>
 </html>
-```
